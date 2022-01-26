@@ -5,6 +5,7 @@ Game::Game(int width, int height, int fps, std::string title)
 {
 	assert(!GetWindowHandle());
 	SetTargetFPS(fps);
+	SetConfigFlags(FLAG_WINDOW_RESIZABLE);
 	InitWindow(width, height, title.c_str());
 
 	Game::lixolotl = LoadTexture("resources/lixolotl.png");
