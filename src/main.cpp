@@ -1,19 +1,12 @@
-#include "raylib.h"
+#include "Game.hpp"
 
 int main(void)
 {
-    InitWindow(1280, 720, "RescapeRoom | 0.0.1 InDev");
-    SetTargetFPS(60);
+    Game game(1280, 720, "RescapeRoom | 0.0.1 InDev");
 
-    while (!WindowShouldClose())
-    {
-        BeginDrawing();
-        ClearBackground(RAYWHITE);
-        DrawText("Congrats! You created your first window!", 0, 0, 20, LIGHTGRAY);
-        EndDrawing();
+    while (!game.GameShouldClose()) {
+        game.Tick();
     }
-
-    CloseWindow();
 
     return 0;
 }
