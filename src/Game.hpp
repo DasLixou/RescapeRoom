@@ -15,5 +15,5 @@ public:
 
 private:
     void Update();
-    void Draw();
+    void Draw(float deltaTime);
 };

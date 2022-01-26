@@ -24,7 +24,7 @@ void Game::Tick()
 {
 	BeginDrawing();
 	Update();
-	Draw();
+	Draw(GetFrameTime());
 	EndDrawing();
 }
 
@@ -32,7 +32,7 @@ void Game::Update()
 {
 }
 
-void Game::Draw()
+void Game::Draw(float deltaTime)
 {
 	ClearBackground(RAYWHITE);
 }
