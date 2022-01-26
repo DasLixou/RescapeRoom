@@ -2,9 +2,10 @@
 #include <raylib.h>
 #include <assert.h>
 
-Game::Game(int width, int height, std::string title)
+Game::Game(int width, int height, int fps, std::string title)
 {
 	assert(!GetWindowHandle());
+	SetTargetFPS(fps);
 	InitWindow(width, height, title.c_str());
 }
 
