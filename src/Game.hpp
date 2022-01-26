@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <raylib.h>
 
 class Game
 {
@@ -13,7 +14,10 @@ public:
 
     void Tick();
 
+    enum class GameState { LOGO = 0, TITLE, GAMEPLAY, ENDING };
 private:
+    Texture2D lixolotl;
+    GameState currentState;
     void Update();
     void Draw(float deltaTime);
 };
