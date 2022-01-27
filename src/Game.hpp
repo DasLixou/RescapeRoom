@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "Scenes/LogoScene.hpp"
 #include <raylib.h>
 
 class Game
@@ -16,8 +17,8 @@ public:
 
     enum class GameState { LOGO = 0, TITLE, GAMEPLAY, ENDING };
 private:
-    Texture2D lixolotl;
     GameState currentState;
-    void Update();
-    void Draw(float deltaTime);
+    Scene* currentScene;
+    void Update(float deltaTime);
+    void Draw();
 };

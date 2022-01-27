@@ -24,8 +24,8 @@ endif()
 
 # Our Project
 
-add_executable(${PROJECT_NAME} src/main.cpp "src/Game.hpp" "src/Game.cpp")
-configure_file("resources/lixolotl.png" ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
+add_executable(${PROJECT_NAME} "src/main.cpp" "src/Game.hpp" "src/Game.cpp" "src/Scene.hpp" "src/Scenes/LogoScene.hpp" "src/Scenes/LogoScene.cpp")
+file(COPY "resources" DESTINATION ${CMAKE_BINARY_DIR})
 #set(raylib_VERBOSE 1)
 target_link_libraries(${PROJECT_NAME} raylib)
 

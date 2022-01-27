@@ -8,8 +8,8 @@ Game::Game(int width, int height, int fps, std::string title)
 	SetConfigFlags(FLAG_WINDOW_RESIZABLE);
 	InitWindow(width, height, title.c_str());
 
-	Game::lixolotl = LoadTexture("resources/lixolotl.png");
 	Game::currentState = Game::GameState::LOGO;
+	Game::currentScene = new LogoScene();
 }
 
 Game::~Game() noexcept
@@ -26,28 +26,19 @@ bool Game::GameShouldClose() const
 void Game::Tick()
 {
 	BeginDrawing();
-	Update();
-	Draw(GetFrameTime());
+	Update(GetFrameTime());
+	Draw();
 	EndDrawing();
 }
 
-void Game::Update()
+void Game::Update(float deltaTime)
 {
+	Game::currentScene->Update(deltaTime);
 }
 
-float i = 0;
-void Game::Draw(float deltaTime)
+void Game::Draw()
 {
 	ClearBackground(BLACK);
 
-	switch (Game::currentState)
-	{
-	case Game::GameState::LOGO:
-		if (i >= 255) { Game::currentState = Game::GameState::TITLE; }
-		DrawTexture(Game::lixolotl, GetScreenWidth() / 2 - Game::lixolotl.width / 2, GetScreenHeight() / 2 - Game::lixolotl.height / 2, Color{255, 255, 255, (unsigned char)i});
-		i = i + 60.0f * deltaTime;
-		break;
-	default:
-		break;
-	}
+	Game::currentScene->Render();
 }
